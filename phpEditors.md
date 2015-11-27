@@ -1,6 +1,6 @@
 ## The Best PHP IDE
 
-It's hard to argue the importance of a good **IDE** when it comes to programming. A good choice can greatly enhance the productivity of a programmer. It's worthwhile to remember that the choice of an IDE is quite subjective; there's no such thing as the right choice. Plus, every one of these tools has a learning curve.
+It's hard to argue the importance of a good **IDE** when it comes to programming. A good choice can greatly enhance the productivity of a programmer. It's worthwhile to remember that the choice of an IDE is quite subjective and that there's no such thing as the right choice. Plus, every one of these tools has a learning curve.
 
 Here, we take a look at the various development options for **PHP**. There's a lot for the community out there beyond gedit and Notepad.
 
@@ -31,7 +31,7 @@ Once past the learning phase, Aptana aptly rewards programmers with it's pace. I
 Geany is a small, lightweight and cute editor with many IDE-ish features. It supports standard features like code folding, syntax highlighting, code navigation, closing of html tags and the like.
 
 ### [Zend Studio](http://www.zend.com/en/products/studio)  
-Zend competes with the other IDEs in that it too offers syntax highlighting, code completion and the like. Where it wins is in offering debug support live on a web server while browsing in addition to with a standalone PHP interpreter.
+Zend competes with the other IDEs in that it too offers syntax highlighting, code completion and the like. Where it wins is in offering debug support live on a web server while browsing, in addition to, with a standalone PHP interpreter.
 
 ### [Delphi for PHP](http://www.embarcadero.com/products/HTML5-Builder)  
-Delphi for PHP (now RadPHP 3.0) has won praise from the community smooth interfacing. It offers a designer, support for frameworks such as Zend and more, drag and drop utility and a neat GUI editor.
+Delphi for PHP (now RadPHP 3.0) has won praise from the community for its smooth interfacing. It offers a designer, support for frameworks such as Zend, drag and drop utility and a neat GUI editor.
