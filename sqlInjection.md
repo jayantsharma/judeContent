@@ -44,7 +44,7 @@ $databaseCnn = new PDO('mysql:dbname=test;host=127.0.0.1;charset=utf8', 'uname',
 $dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 ```
 
-What happens with prepared statements is that the database server parses and compiles them before executing. The **?** and the **:name** parameters tell the server where the query should be filtered. When the query is **executed**, the server combines the query with the search params. The method prevents **Injection attacks** by treating the query separately (as a query and not as a string) from the params which are treated like strings (or numbers, for optimization purposes). Hence, passing a name above like "Robert'); DROP TABLE Students;--" will just result in **one** query instead of **two** which searches for a student with a rather weird name.
+What happens with prepared statements is that the database server parses and compiles them before executing. The **?** and the **:name** parameters tell the server where the query should be filtered. When the query is **executed**, the server combines the query with the search params. The method prevents **Injection attacks** by treating the query separately (as a query and not as a string) from the params which are treated like strings (or numbers, for optimization purposes). Hence, passing a name above like `"Robert'); DROP TABLE Students;--"` will just result in **one** query instead of **two** which searches for a student with a rather weird name.
 ```mysql
 SELECT * FROM Students WHERE name = "Robert'); DROP TABLE Students;--";
 ```
@@ -67,8 +67,8 @@ Consider :
 ```php
 $query = "SELECT * FROM Students WHERE id = " . $safe_variable;
 ```
-Since the value expected for id is an integer, it is not surrounded by quotes. But, and Injection here is still possible because a parameter of the following kind will pass through the escape check :  
-`1 UNION SELECT password FROM users`
+Since the value expected for id is an integer, it is not surrounded by quotes. But, Injection here is still possible because a parameter of the following kind will pass through the escape check :  
+`1 UNION SELECT password FROM users`  
 In such cases, it'll be essential to conduct checks validating that the param contains only digits.
 
 ### Whitelisting
@@ -80,11 +80,11 @@ $orderby = $orders[$key]; // FALSE evals to 0
 $query   = "SELECT * FROM `table` ORDER BY $orderby"; 
 ```
 
-The above two methods can also be used to protect identifiers. They can be **escaped** to prevent attacks or **placeholders** can be devised for identifiers in the same manner as placeholders were put in place for column values.
+The above two methods can also be used to protect identifiers. They can be **escaped** to prevent attacks or **placeholders** can be devised for identifiers in the same manner as placeholders were put in place for column values. We might call these **identifier placeholders**.
 
 ### Hacks based on Input Types
 ##### Integer Input
-This basically implies tha the programmer makes sure that the user-entered input really is an integer. Here's a neat way to do it : 
+This basically implies that the programmer makes sure that the user-entered input really is an integer. Here's a neat way to do it : 
 ```php
 $query = sprintf("SELECT 1,2,3 FROM table WHERE 4 = %u", $input);
 ```
