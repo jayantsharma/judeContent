@@ -1,6 +1,6 @@
 ## The Best PHP IDE
 
-It's hard to argue the importance of a good **IDE** when it comes to programming. A good choice can greatly enhance the productivity of a programmer. It's worthwhile to remember that the choice of an IDE is quite subjective and that there's no such thing as the right choice. Plus, every one of these tools has a learning curve.
+It's hard to argue the importance of a good **IDE** when it comes to programming. A good choice can greatly enhance the productivity of a programmer. It's worthwhile to remember though that the choice of an IDE is quite subjective and that there's no such thing as the right choice. Plus, every one of these tools has a learning curve.
 
 Here, we take a look at the various development options for **PHP**. There's a lot for the community out there beyond gedit and Notepad.
 
@@ -9,7 +9,7 @@ While not an IDE, jEdit 'the mature programmer's editor' can be a great choice, 
     A number of **plugins** are available to enhance jEdit's functionality. It provides **syntax highlighting** for more than 200 languages, according to it's website. One can interact with the **shell** from inside the editor itself.
 
 ### [JetBrains PhpStorm](http://www.jetbrains.com/phpstorm/)  
-PhpStorm is a popular choice among PHP programmers. The tool features smart **code completion** and **analysis**. It also packs in a handy **HTML/CSS/JavaScript editor**, and integrates well with the popular **revision control systems**. A major turn-off is that it doesn't come for **free**.
+PhpStorm is a popular choice among PHP programmers. The tool features smart **code completion** and **analysis**, which has won great reviews. It also packs in a handy **HTML/CSS/JavaScript editor**, and integrates well with the popular **revision control systems**. A major turn-off is that it doesn't come for **free**.
 
 ### [NetBeans](https://netbeans.org/features/php/)  
 A traditional favourite among programmers, NetBeans provides robust support for PHP as well. It supports the popular web frameworks **Zend** and **Symfony**, integrates with **SVN, CVS, git** and the PHP editor is dynamically integrated with it's friends **HTML/CSS/JavaScript**. It also offers a neat debugger for PHP, **Xdebug**.
