@@ -90,3 +90,14 @@ $query = sprintf("SELECT 1,2,3 FROM table WHERE 4 = %u", $input);
 ```
 
 #### Other than Integer
+Just **hex** the parameter to escape it. The relevant PHP function here is `bin2hex()`. However, all such params have to be prepended with `0x` or the MySQL function `UNHEX` be used.
+```mysql
+SELECT * FROM Students WHERE name = 'Robert'
+```
+becomes
+```mysql
+SELECT * FROM Students WHERE name = 0x526f62657274 -- UNHEX('526f62657274')
+```
+While `UNHEX` is robust and works like magic, `0x` only works on certain data types and gives an error if an empty string is passed to it.
+
+Last, but not the least, make sure before proceeding with any method that the user input hasn't been mutated with `magic_quotes` or similar methods. The input will need to be sanitized using `stripslashes` etc.
