@@ -1,12 +1,12 @@
 # Preventing SQL Injection in PHP
 
-Do you remember this great comic ?  
+Do you remember this great xkcd comic ?  
 
 ![foo](https://imgs.xkcd.com/comics/exploits_of_a_mom.png "Her daughter is named Help I'm trapped in a driver's license factory")
 
-Let's break this down and see the problem. Consider the following form of a MySQL query in PHP (using mysqli) : 
+Let's break this down and see the problem. Consider the following form of a MySQL query in PHP : 
 ```php
-mysqli_query("INSERT INTO Students VALUES ('" + FNMName.Text + "', " + LName.Text + ")";
+mysql_query("INSERT INTO Students VALUES ('" + FNMName.Text + "', " + LName.Text + ")";
 ```
 Substituting the above value of name for FNMName.Text and an imaginary surname for LName.Text results in not one, but two queries : 
 ```mysql
@@ -65,7 +65,7 @@ Note : mysql_real_esape_string is deprecated. Please refer the PHP documentation
 ##### Possible attack
 Consider : 
 ```php
-$query = "SELECT * FROM Students WHERE id = " . $safe_variable;
+$query = "SELECT * FROM Students WHERE id = " . $safe_variable;  // safe variable as defined above
 ```
 Since the value expected for id is an integer, it is not surrounded by quotes. But, Injection here is still possible because a parameter of the following kind will pass through the escape check :  
 `1 UNION SELECT password FROM users`  
