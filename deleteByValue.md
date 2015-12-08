@@ -23,7 +23,7 @@ This method only works for arrays whose members can be converted to strings.
 ```php
 $foo = array_diff($foo, [$delValue]);
 ```
-`delValue` is cast into an array, and `array_diff` returns only the values of `foo` that will not be found in `[$delValue]`. Thus, all instances of `delValue` are deleted. This is a concise, powerful way that will successfully delete multiple entries of `delValue`.
+`delValue` is cast into an array, and `array_diff` returns only the values of `foo` that will not be found in `[$delValue]`. Thus, all instances of `delValue` are deleted. This is a concise, powerful way that successfully deletes multiple entries of `delValue`.
 
 3. ### Using `array_keys`
 
@@ -37,13 +37,13 @@ The argument `$delValue` tells the function `array_keys` to return keys only for
 
 4. ### Using Anonymous Functions with `array_filter`
 
-A neat method that'll only work for versions of PHP >= 5.3.0.
+A neat method that only works for versions of PHP >= 5.3.0.
 ```php
 $foo = array_filter($foo, function($value) use ($delValue) {
     return ($value !== $delValue);
 });
 ```
-The anonymous function returns a boolean value, which determines whether an element should pass through the filter or not. All values of the array `foo` *strictly not equal to* `delValue` pass through and become a part of the new array. Worth noting that multiple instances of `delValue` will be deleted.
+The anonymous function returns a boolean value, which determines whether an element should pass through the filter or not. All values of the array `foo` *strictly not equal to* `delValue` pass through and become a part of the new array. Worth noting that multiple instances of `delValue` are deleted.
 
 5. ### Using `array_flip`
 
@@ -53,7 +53,7 @@ $flippedFoo = array_flip($foo);
 unset($foo[$delValue]);
 $foo = array_flip($flippedFoo);
 ```
-Multiple values will be deleted as a side-effect of the `array_flip` call, although some data loss may also possibly occur.
+Multiple values are deleted as a side-effect of the `array_flip` call, although some data loss can possibly occur.
 
 6. ### Using comparisons and loops
 
@@ -64,7 +64,7 @@ foreach($foo as $key => $value){
     }
 }
 ```
-Since each element is looped over, multiple values if present shall all be deleted.
+Since each element is looped over, multiple values if present are all deleted.
 
 7. ### Using `array_splice`
 
@@ -74,3 +74,13 @@ $key = array_search($delValue, $foo);
 array_splice($foo, $key, 1);
 ```
 The method only deletes one instance of the value from the array. In the case of associative arrays or arrays in which keys have gaps, the method fails.
+
+# References
+1. [array_search](http://php.net/manual/en/function.array-search.php)
+2. [unset](http://php.net/manual/en/function.unset.php)
+3. [array_diff](http://php.net/manual/en/function.array-diff.php)
+4. [array_keys](http://php.net/manual/en/function.array-keys.php)
+5. [array_flip](http://php.net/manual/en/function.array-flip.php)
+6. [array_filter](http://php.net/manual/en/function.array-filter.php)
+7. [Anonymous Functions](http://php.net/manual/en/functions.anonymous.php)
+8. [array_splice](http://php.net/manual/en/function.array-splice.php)
