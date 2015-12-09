@@ -41,7 +41,7 @@ The values of the following variables in `php.ini` need to be set appropriately 
 * `display_errors` to 1
 * `error_reporting` to desired level of error reporting (eg: E_ALL & ~E_NOTICE)
 
-On shared hosts, it might not be possible to alter `php.ini`. It might be possible to convey these changes through the .htaccess file : 
+On shared hosts, it might not be possible to alter `php.ini`. However, the same changes can be conveyed through the .htaccess file : 
 ```
 php_flag  display_errors        on
 php_value error_reporting       2039
@@ -52,7 +52,7 @@ The simplest way to enable reporting however, maybe to add equivalent lines to t
 ini_set('display_errors', 1);
 error_reporting(-1);    // report all errors
 ```
-A slight modification maybe made above to ensure that `display_errors` is only set on local/dev machine.
+A slight modification can be made above to ensure that `display_errors` is only set on local/dev machine.
 ```php
 $testServer = $_SERVER['SERVER_NAME'] = "127.0.0.1" || $_SERVER['SERVER_NAME'] = "localhost";
 ini_set('display_errors', $testServer);
@@ -72,14 +72,14 @@ function logErrors($errorNum, $errorStr){
 5. ### Using Debuggers 
 
 A number of tools can be used as editors and/or debuggers with PHP and popular editors like NetBeans/Eclipse. Some of these tools are mentioned below : 
-1. PHPEclipse - syntax highlighting, PHP scripts previews, setting breakpoints
-2. Xdebug - Very popular, integrates with Eclipse and NetBeans
-3. PHPEd - editor, comes with a debugger
-4. FirePHP - Firefox add-on to debug PHP alongside Javascript
-5. PHPStorm - code editor
-6. Nette Tracy - visualisation of errors and exceptions
-7. dBug - lighweight, quick tool
-8. Zend Studio - breakpoints, stepping over code, proprietary software
+1. [PHPEclipse](http://www.phpeclipse.com/) - syntax highlighting, PHP scripts previews, setting breakpoints
+2. [Xdebug](http://xdebug.org/) - Very popular, integrates with Eclipse and NetBeans
+3. [PHPEd](http://www.nusphere.com/products/phped.htm) - editor, comes with a debugger
+4. [FirePHP](https://addons.mozilla.org/en-us/firefox/addon/firephp/) - Firefox add-on to debug PHP alongside Javascript
+5. [PHPStorm](https://www.jetbrains.com/phpstorm/) - code editor
+6. [Nette Tracy](https://tracy.nette.org/) - visualisation of errors and exceptions
+7. [dBug](http://dbug.ospinto.com/) - lighweight, quick tool
+8. [Zend Studio](http://www.zend.com/en/products/studio) - breakpoints, stepping over code, proprietary software
 
 # References
 1. [print_r](http://php.net/manual/en/function.print-r.php)
@@ -87,4 +87,3 @@ A number of tools can be used as editors and/or debuggers with PHP and popular e
 3. [error_reporting](http://php.net/manual/en/function.error-reporting.php)
 4. [IBM article on PHP Debugging](http://www.ibm.com/developerworks/library/os-debug/)
 5. [set_error_handler](http://php.net/manual/en/function.set-error-handler.php)
-6. [dBug](http://dbug.ospinto.com/)
