@@ -2,17 +2,17 @@
 
 In this article, we discuss various ways of debugging PHP scripts, from printing variable values to using sophisticated debuggers.
 
-* ### Printing variables
+1. ### Printing variables
 
 An elementary way to try to debug code is to print the relevant variables and possibly, have the script exit at those points. This can be done in a couple of ways.
-1. `print_r`
+* `print_r`
 ```php
 echo '<pre>';
 print_r($foo);
 print_r($bar);
 echo '</pre>';
 ```
-2. `var_dump`
+* `var_dump`
 ```php
 var_dump($foo, $bar);
 // exit();
@@ -20,7 +20,7 @@ var_dump($foo, $bar);
 The output of `print_r` and `var_dump` differs slightly in the formatting and variable information printed. Also, `print_r` doesn't take multiple arguments.   
 While this might seem like a trivial way to debug applications, but using it at appropriate points found by analyzing the application structure can be quite useful. 
 
-* ### Backtrace
+2. ### Backtrace
 
 The function `debug_print_backtrace` prints the PHP backtrace when called. While it can be put anywhere, it can be particularly useful in an exception handler.
 ```php
@@ -34,12 +34,12 @@ function exception_handler(Exception $e){
 }
 ```
 
-* ### Reporting Errors
+3. ### Reporting Errors
 
 PHP generates various error messages according to it's configuration in `php.ini` but these are suppressed by default, since it isn't logical for a user to see them. For debugging purposes however, they can be switched on.
 The values of the following variables in `php.ini` need to be set appropriately : 
-1. `display_errors` to 1
-2. `error_reporting` to desired level of error reporting (eg: E_ALL & ~E_NOTICE)
+* `display_errors` to 1
+* `error_reporting` to desired level of error reporting (eg: E_ALL & ~E_NOTICE)
 
 On shared hosts, it might not be possible to alter `php.ini`. It might be possible to convey these changes through the .htaccess file : 
 ```
@@ -59,7 +59,7 @@ ini_set('display_errors', $testServer);
 ```
 It needs to be mentioned that the parameter `display_errors` need not be set in order to view errors. If `error_reporting` is set, then the errors are logged in the PHP log, and can be read from there. The `error_log` entry in `php.ini` declares the location of the log file.
 
-* ### Registering custom Error Handler
+4. ### Registering custom Error Handler
 
 An error handler is called whenever an error occurs. The advantage of using an error handler is that no matter what the value of `error_reporting` is, the handler is always called and errors can be logged.
 ```php
@@ -69,7 +69,7 @@ function logErrors($errorNum, $errorStr){
     set_error_handler('logErrors');
 ```
     
-* ### Using Debuggers 
+5. ### Using Debuggers 
 
 A number of tools can be used as editors and/or debuggers with PHP and popular editors like NetBeans/Eclipse. Some of these tools are mentioned below : 
 1. PHPEclipse - syntax highlighting, PHP scripts previews, setting breakpoints
