@@ -1,6 +1,6 @@
 # PHP : Passing Variables between Pages
 
-Let's assume a PHP variable `foo` on page1.php.There is a form on this page which posts on page2.php. Since HTTP is stateless, webpages are disconnected and this implies that page2.php won't be aware of the existence of page1.php or any date thereof. page2 can still access the variables from the page1 script using the methods discussed here.
+Let's assume a PHP variable `foo` on page1.php. There is a form on this page which posts on page2.php. Since HTTP is stateless, webpages are disconnected and this implies that page2.php won't be aware of the existence of page1.php or any date thereof. However, page2 can still access the variables from the page1 script using the methods discussed here.
 
 * ### Sessions
 
@@ -18,7 +18,7 @@ It's important to note that the `session_start` line must be used prior to using
 
 * ### Cookies
 
-Cookies differ from Sessions in that they store the date on the client machine instead of the server, and are considered relatively un-safe for this reason. 
+Cookies differ from Sessions in that they store the date on the client machine instead of the server, and hence, considered relatively un-safe. 
 ```php
 // on page1
 setcookie('foo', $foo);
@@ -26,7 +26,7 @@ setcookie('foo', $foo);
 // on page2
 $foo = $_COOKIE['foo'];
 ```
-Cookies maybe preferred over sessions in situations where date needs to persist, but it's also possible to do the same by storing the data in a database and retrieving using an id or username.
+Cookies maybe preferred over sessions in situations where date needs to persist. However, it's possible to avoid cookies by storing the data in a database and retrieving it using an id or username.
 
 * ### GET and POST params
 
@@ -50,7 +50,7 @@ $foo = $_POST['foo'];
 // using GET, POST or COOKIE
 $foo = $_REQUEST['foo'];
 ```
-GET and POST, both methods are considered insecure because the it's possible to fiddle with this data before sending it to the server.
+Both methods, GET and POST, are considered insecure because it's possible to fiddle with this data before sending it to the server.
 
 # References
 1. [session_start](http://php.net/manual/en/function.session-start.php)
