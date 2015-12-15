@@ -14,6 +14,8 @@ $ git commit -a -c ORIG_HEAD	(3)
 2. Make corrections to working tree files.
 3. "reset" copies the old head to .git/ORIG\_HEAD; re-does the commit by starting with its log message. If the message needs no further editing, the -C option can be given instead.
 
+It would be a good idea after the undo process to add the `.class` files to `.gitignore`.
+
 In the above example, `git-reset` is used with the option `--soft`. Two other options are frequently used with `git-reset` : 
 1. `git reset --mixed HEAD^`
 This is the same as `git reset HEAD^`. With this option, the working tree remains intact but the index is reset (i.e., the changed files are preserved but not marked for commit). 
@@ -68,8 +70,15 @@ $ git commit -m 'added java file'
 
 In the event that a commit has been made to the wrong branch, `revert` can be used in combination with `cherry-pick` : 
 ```
-$ git revert HEAD		(1)
-$ git checkout rightBranch
-$ git reflog wrongBranch
-$ git cherry-pick commit
+$ git revert HEAD			(1)
+$ git checkout rightBranch		(2)
+$ git reflog wrongBranch		(3)
+$ git cherry-pick revertedCommit	(4)
 ```
+1. `revert` the latest commit on wrongBranch; could also do `git reset --hard HEAD~1.
+2. switch to rightBranch
+3. look at the logs of wrongBranch, particularly noting the SHA for the *reverted commit*
+4. apply the above commit on rightBranch
+
+### References
+1. []()
