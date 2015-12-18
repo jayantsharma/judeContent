@@ -10,7 +10,7 @@ The local branch foo can *only* be deleted if it is fully merged in its upstream
 ```sh
 git branch -d foo
 ```
-To force deletion if the above requirements are not met : 
+To *force* deletion if the above requirements are not met : 
 ```sh
 git branch -D foo
 ```
