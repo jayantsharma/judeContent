@@ -1,4 +1,4 @@
-git - Revert to a previous commit
+# Git - Revert to a previous commit
 
 Reverting to a previous commit is an inherently ambiguous task and can mean different things to different people. We consider a git repo with the following history, and the different scenarios therof. Let's say the dev wants to *revert* to the commit `dbc1e1f`.
 
@@ -35,8 +35,8 @@ Date:   Tue Dec 15 20:20:34 2015 +0530
     loo
 ```
 
-- ### Temporary Switch to `<commit>`
-If the aim is to go back to the older state and look around, the simply checking out the commit will be sufficient.
+- ### Temporary Switch to <commit>
+If the aim is to go back to the older state and look around, then simply checking out the commit will be sufficient.
 ```sh
 # DETACHED HEAD state,i.e., no branch checked out
 git checkout dbc1e1f
@@ -47,10 +47,10 @@ git checkout -b oldState dbc1e1f
 ```
 
 - ### Getting Rid of commits
-How one proceeds with in this scenario largely depends on whether the commits have been published or not ?
+How one proceeds in this scenario largely depends on whether the commits have been published or not, since some methods can alter the branch history.
 
-1. Unpublished commits
-If the commits haven't been published, altering the history isn't a concern. With `git reset`: 
+1. #### Unpublished commits
+If the commits haven't been published yet, altering the history isn't a concern. With `git reset`: 
 ```sh
 # will remove all modifications to working directory and index
 # use --mixed or --soft if this is not what you want
@@ -62,9 +62,10 @@ git reset --hard dbc1e1f
 git stash pop
 # saves changes, then re-applies changes after resetting
 # could possibly get merge conflicts
+```
 
-2. Published commits
-Instead of re-writing history with `git-reset`, one should use `git-revert` in the case of published commits. `revert` creates new commits with corresponding reverse-patches applied for the stated commits. 
+2. #### Published commits
+Instead of re-writing history with `git-reset`, one should use `git-revert` in the case of published commits. `revert` creates new commits with corresponding reverse-patches for the stated commits. 
 ```sh
 # create four revert commits
 git revert 6ba7055 2c7aa2b 1f59c26 1d99af2
@@ -85,3 +86,7 @@ git revert --no-commit HEAD~4..HEAD
 # handle conflicts
 git revert --continue
 ```
+
+# References
+1. [Git Blog - Undoing Merges](http://git-scm.com/blog/2010/03/02/undoing-merges.html)
+2. [Github blog - Undoing things](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
