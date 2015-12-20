@@ -1,4 +1,4 @@
-# git - Deleting Branches
+# Git - Deleting Branches
 
 Consider a local branch *foo*. The corresponding remote-tracking branch *origin/foo* (origin is the remote repo) tracks the *remote branch Foo*. The task of deleting branch foo can be interpreted as the task of deleting all the above three branches. To enumerate : 
 1. *local* branch foo
